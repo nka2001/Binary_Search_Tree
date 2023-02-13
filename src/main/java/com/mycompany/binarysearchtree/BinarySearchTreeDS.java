@@ -44,11 +44,53 @@ public class BinarySearchTreeDS<T extends Comparable<T>> {
      * @return
      */
     public boolean add(T addMe) {
+
+        Node<T> newNode = new Node<T>(addMe);
+
+        Node<T> traverseTree = root;
+        Node<T> trail = traverseTree;
+
+        //case 1, the tree is empty
+        if (root == null) {
+            root = newNode;
+            return true;
+        }
+
+        //case 2, the tree has data in it, just add a node to the tree
+        while (traverseTree != null) {
+            trail = traverseTree;
+
+            if (traverseTree.nodeData.compareTo(addMe) == 0) {//No duplicates allowed in the tree
+                return false;
+            }
+            if (traverseTree.nodeData.compareTo(addMe) < 0) {
+                traverseTree = traverseTree.r;
+            } else {
+                traverseTree = traverseTree.l;
+            }
+        }
+
+        if (trail.nodeData.compareTo(newNode.nodeData) < 0) {
+            trail.r = newNode;
+        } else {
+            trail.l = newNode;
+        }
+
         return false;
     }
-    
-    public Node<T> findLast(T findMe){
-        
+
+    public Node<T> findLast(Node<T> n) {
+        Node<T> findLast = n;
+        findLast = findLast.r;
+
+        Node<T> trail = findLast;
+
+        while (trail != null) {
+            findLast = trail;
+            trail = trail.l;
+
+        }
+        return findLast;
     }
 
 }
