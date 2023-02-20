@@ -1,5 +1,7 @@
 package com.mycompany.binarysearchtree;
 
+import java.util.Stack;
+
 /**
  *
  * @author nicka
@@ -91,6 +93,28 @@ public class BinarySearchTreeDS<T extends Comparable<T>> {
 
         }
         return findLast;
+    }
+    
+    public String toString(){
+        
+        Node<T> temp = root;
+        Stack<Node<T>> s = new Stack<>();
+        
+        while(temp != null || !s.isEmpty()){
+            
+            if(temp != null){
+                s.add(temp);
+                temp = temp.l;
+            } else {
+                temp = s.pop();
+                System.out.println(temp.nodeData + " ");
+                temp = temp.r;
+            }
+            
+            
+            
+        }
+        return "";
     }
 
 }

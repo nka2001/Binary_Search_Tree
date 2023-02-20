@@ -7,6 +7,19 @@ package com.mycompany.binarysearchtree;
 public class BinarySearchTree {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+
+        BinarySearchTreeDS bst = new BinarySearchTreeDS();
+        bst.add("30");
+        bst.add("50");
+        bst.add("15");
+        bst.add("20");
+        bst.add("10");
+        bst.add("40");
+        bst.add("60");
+        
+
+        bst.toString();
+
+
     }
 }
