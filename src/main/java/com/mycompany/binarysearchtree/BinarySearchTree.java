@@ -18,7 +18,17 @@ public class BinarySearchTree {
         bst.add("60");
         
 
-        bst.toString();
+        bst.toString();//will print out the tree in order
+        System.out.println("-------------------------------");
+       
+        bst.prefixTraversal();
+        
+        System.out.println("-------------------------------");
+        
+        bst.add("5");
+        bst.add("12");
+        
+        bst.prefixTraversal();
 
 
     }

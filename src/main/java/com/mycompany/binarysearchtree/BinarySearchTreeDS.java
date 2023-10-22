@@ -14,7 +14,7 @@ public class BinarySearchTreeDS<T extends Comparable<T>> {
      *
      * @param <T>
      */
-    class Node<T> {
+    private class Node<T> {
 
         T nodeData;//actual data in the node
         Node<T> l;//left pointer
@@ -47,7 +47,7 @@ public class BinarySearchTreeDS<T extends Comparable<T>> {
      */
     public boolean add(T addMe) {
 
-        Node<T> newNode = new Node<T>(addMe);
+        Node<T> newNode = new Node<>(addMe);
 
         Node<T> traverseTree = root;
         Node<T> trail = traverseTree;
@@ -80,6 +80,25 @@ public class BinarySearchTreeDS<T extends Comparable<T>> {
 
         return false;
     }
+    
+    public void prefixTraversal(){
+        prefixTraversal(root);
+    } 
+    
+    private void prefixTraversal(Node<T> node){
+        
+        if(node != null){
+            
+            prefixTraversal(node.l);
+            System.out.println(node.nodeData + " ");
+            prefixTraversal(node.r);
+            
+            
+        }
+        
+        
+    }
+    
 
     public Node<T> findLast(Node<T> n) {
         Node<T> findLast = n;
